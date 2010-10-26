@@ -1,1 +1,3 @@
 A test project aimed at benchmarking mobile applications with OpenLayers
+
+A patch targeted at OpenLayers trunk is provided in this directory to prevent animated panning (which slows down everything).

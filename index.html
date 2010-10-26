@@ -2,6 +2,11 @@
 <html>
 <head>
     <title>A mobile OpenLayers</title>
+    <!-- IPhone Meta Tags -->
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    
     <script type="text/javascript" src="OpenLayers.js"></script>
     <script>
     var map;
@@ -10,7 +15,11 @@
             resolutions: [0.087890625, 0.0439453125, 0.02197265625, 0.010986328125],
             theme: null,
             controls: [
-                new OpenLayers.Control.PanPanel(),
+                new OpenLayers.Control.PanPanel({
+                    panOptions: {
+                        animate: false
+                    }
+                }),
                 new OpenLayers.Control.ZoomPanel()
             ]
         });
@@ -34,11 +43,16 @@
     }
     </script>
     <style type="text/css">
+        body {
+            padding: 0px;
+            margin: 0px;
+        }
+    
         /* from OpenLayers : */
         div.olMap {
             z-index: 0;
-            padding: 0px!important;
-            margin: 0px!important;
+            padding: 0px;
+            margin: 0px;
             cursor: default;
         }
 
@@ -98,13 +112,12 @@
             background-position: 60px 60px;
         }
        .olControlZoomPanel {
-             width: 100;
+             width: 100%;
              height: 60;
              top: 100%;
-             left: 100%;
-             margin-left: -100;
-             margin-top: -60;
-        } 
+             left: 0;
+             margin-top: -120;
+        }
        .olControlZoomPanel div {
             background-image: url(img/big-zoom-panel.png);
             position: absolute;
@@ -114,8 +127,8 @@
         }
         .olControlZoomPanel .olControlZoomInItemInactive {
             bottom: 20;
-            right: 100;
-            left: auto;
+            left: 20;
+            right: auto;
             top: auto;
             background-position: 0px 0px;
         }
