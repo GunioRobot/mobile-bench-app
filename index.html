@@ -1,0 +1,137 @@
+<!-- FIXME: which doctype is best ? -->
+<html>
+<head>
+    <title>A mobile OpenLayers</title>
+    <script type="text/javascript" src="OpenLayers.js"></script>
+    <script>
+    var map;
+    function init() {
+        map = new OpenLayers.Map('map', {
+            resolutions: [0.087890625, 0.0439453125, 0.02197265625, 0.010986328125],
+            theme: null,
+            controls: [
+                new OpenLayers.Control.PanPanel(),
+                new OpenLayers.Control.ZoomPanel()
+            ]
+        });
+        var layer = new OpenLayers.Layer.TileCache("TileCache Layer",
+            ["http://c0.tilecache.osgeo.org/wms-c/cache/",
+             "http://c1.tilecache.osgeo.org/wms-c/cache/",
+             "http://c2.tilecache.osgeo.org/wms-c/cache/",
+             "http://c3.tilecache.osgeo.org/wms-c/cache/",
+             "http://c4.tilecache.osgeo.org/wms-c/cache/"],
+            "basic",
+            {
+                serverResolutions: [0.703125, 0.3515625, 0.17578125, 0.087890625, 
+                                    0.0439453125, 0.02197265625, 0.010986328125, 
+                                    0.0054931640625, 0.00274658203125, 0.001373291015625, 
+                                    0.0006866455078125, 0.00034332275390625, 0.000171661376953125, 
+                                    0.0000858306884765625, 0.00004291534423828125, 0.000021457672119140625]
+            }
+        );
+        map.addLayer(layer);
+        map.setCenter(new OpenLayers.LonLat(5, 40), 5);
+    }
+    </script>
+    <style type="text/css">
+        /* from OpenLayers : */
+        div.olMap {
+            z-index: 0;
+            padding: 0px!important;
+            margin: 0px!important;
+            cursor: default;
+        }
+
+        div.olMapViewport {
+            text-align: left;
+        }
+
+        div.olLayerDiv {
+           -moz-user-select: none;
+        }
+
+        .olImageLoadError {
+            background-color: pink;
+            opacity: 0.5;
+            filter: alpha(opacity=50); /* IE */
+        }
+
+        /* our own : */
+        .olControlPanPanel {
+             width: 100%;
+             height: 100%;
+             left: 0;
+             top: 0;
+        }
+        .olControlPanPanel div {
+            background-image: url(img/big-pan-panel.png);
+            height: 60px;
+            width: 60px;
+            cursor: pointer;
+            position: absolute;
+        }
+        .olControlPanPanel .olControlPanNorthItemInactive {
+            left: 50%;
+            margin-left: -30px;
+            top: 20;
+            background-position: 0px 0px;
+        }
+        .olControlPanPanel .olControlPanSouthItemInactive {
+            left: 50%;
+            margin-left: -30px;
+            top: auto;
+            bottom: 20;
+            background-position: 60px 0px;
+        }
+        .olControlPanPanel .olControlPanWestItemInactive {
+            position: absolute;
+            top: 50%;
+            margin-top: -30px;
+            left: 20;
+            background-position: 0px 60px;
+        }
+        .olControlPanPanel .olControlPanEastItemInactive {
+            top: 50%;
+            margin-top: -30px;
+            left: auto;
+            right: 20;
+            background-position: 60px 60px;
+        }
+       .olControlZoomPanel {
+             width: 100;
+             height: 60;
+             top: 100%;
+             left: 100%;
+             margin-left: -100;
+             margin-top: -60;
+        } 
+       .olControlZoomPanel div {
+            background-image: url(img/big-zoom-panel.png);
+            position: absolute;
+            height: 60px;
+            width: 60px;
+            cursor: pointer;
+        }
+        .olControlZoomPanel .olControlZoomInItemInactive {
+            bottom: 20;
+            right: 100;
+            left: auto;
+            top: auto;
+            background-position: 0px 0px;
+        }
+        .olControlZoomPanel .olControlZoomToMaxExtentItemInactive {
+            display: none;
+        }
+        .olControlZoomPanel .olControlZoomOutItemInactive {
+            bottom: 20;
+            right: 20;
+            left: auto;
+            top: auto;
+            background-position: 0px 60px;
+        }
+    </style>
+</head>
+<body onload='init();'>
+    <div id="map" style="width:100%;height:100%;"></div>  
+</body>
+</html>
