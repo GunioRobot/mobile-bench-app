@@ -10,8 +10,8 @@ svn co http://svn.openlayers.org/trunk/openlayers/
 cd openlayers && patch -p0 < panpanel.animate.patch && cd ..
 cp mobile.cfg openlayers/build
 cd openlayers/build && python build.py mobile.cfg
- 
-This OpenLayers build is then "Closure Compiled" using "Simple" optimizations (with the help of http://closure-compiler.appspot.com/home). 
+
+This OpenLayers build is then "Closure Compiled" using "Simple" optimizations (with the help of http://closure-compiler.appspot.com/home).
 The resulting build is called OpenLayers.cc.js
 Here are the figures :
 Original Size:  126.57KB (31.94KB gzipped)
@@ -19,7 +19,7 @@ Compiled Size:  96.94KB (25.87KB gzipped)
 Saved 23.41% off the original size (19.02% off the gzipped size)
 
 
-Then, I tried with "Advanced optimizations". 
+Then, I tried with "Advanced optimizations".
 As said in http://code.google.com/intl/fr-FR/closure/compiler/docs/api-tutorial3.html#removal we need to export functions which are to be used.
 
 The best way to do this is to ship the app code with the library code.

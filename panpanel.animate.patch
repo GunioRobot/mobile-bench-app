@@ -6,35 +6,35 @@ Index: lib/OpenLayers/Control/Pan.js
       *     handle our events.
       */
      type: OpenLayers.Control.TYPE_BUTTON,
-+    
++
 +    panOptions: null,
- 
+
      /**
-      * Constructor: OpenLayers.Control.Pan 
+      * Constructor: OpenLayers.Control.Pan
 @@ -52,6 +54,7 @@
-     
+
          this.direction = direction;
          this.CLASS_NAME += this.direction;
 +        this.panOptions = {};
-         
+
          OpenLayers.Control.prototype.initialize.apply(this, [options]);
      },
 @@ -63,16 +66,16 @@
-     
+
          switch (this.direction) {
-             case OpenLayers.Control.Pan.NORTH: 
+             case OpenLayers.Control.Pan.NORTH:
 -                this.map.pan(0, -this.slideFactor);
 +                this.map.pan(0, -this.slideFactor, this.panOptions);
                  break;
-             case OpenLayers.Control.Pan.SOUTH: 
+             case OpenLayers.Control.Pan.SOUTH:
 -                this.map.pan(0, this.slideFactor);
 +                this.map.pan(0, this.slideFactor, this.panOptions);
                  break;
-             case OpenLayers.Control.Pan.WEST: 
+             case OpenLayers.Control.Pan.WEST:
 -                this.map.pan(-this.slideFactor, 0);
 +                this.map.pan(-this.slideFactor, 0, this.panOptions);
                  break;
-             case OpenLayers.Control.Pan.EAST: 
+             case OpenLayers.Control.Pan.EAST:
 -                this.map.pan(this.slideFactor, 0);
 +                this.map.pan(this.slideFactor, 0, this.panOptions);
                  break;
@@ -48,11 +48,11 @@ Index: lib/OpenLayers/Control/PanPanel.js
       *     on clicking the arrow buttons, defaults to 50.
       */
      slideFactor: 50,
-+    
++
 +    panOptions: null,
- 
+
      /**
-      * Constructor: OpenLayers.Control.PanPanel 
+      * Constructor: OpenLayers.Control.PanPanel
 @@ -46,16 +48,17 @@
       *     to extend the control.
       */
@@ -74,4 +74,4 @@ Index: lib/OpenLayers/Control/PanPanel.js
 +                                       {slideFactor: this.slideFactor, panOptions: this.panOptions})
          ]);
      },
- 
+

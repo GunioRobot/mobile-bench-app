@@ -23,23 +23,23 @@
  *
  *--------------------------------------------------------------------------*/
 
-/**  
-*  
+/**
+*
 *  Contains portions of Rico <http://openrico.org/>
-* 
-*  Copyright 2005 Sabre Airline Solutions  
-*  
+*
+*  Copyright 2005 Sabre Airline Solutions
+*
 *  Licensed under the Apache License, Version 2.0 (the "License"); you
 *  may not use this file except in compliance with the License. You
 *  may obtain a copy of the License at
-*  
-*         http://www.apache.org/licenses/LICENSE-2.0  
-*  
+*
+*         http://www.apache.org/licenses/LICENSE-2.0
+*
 *  Unless required by applicable law or agreed to in writing, software
 *  distributed under the License is distributed on an "AS IS" BASIS,
 *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
 *  implied. See the License for the specific language governing
-*  permissions and limitations under the License. 
+*  permissions and limitations under the License.
 *
 **/
 
@@ -560,10 +560,10 @@ function init() {
          "http://c4.tilecache.osgeo.org/wms-c/cache/"],
         "basic",
         {
-            serverResolutions: [0.703125, 0.3515625, 0.17578125, 0.087890625, 
-                                0.0439453125, 0.02197265625, 0.010986328125, 
-                                0.0054931640625, 0.00274658203125, 0.001373291015625, 
-                                0.0006866455078125, 0.00034332275390625, 0.000171661376953125, 
+            serverResolutions: [0.703125, 0.3515625, 0.17578125, 0.087890625,
+                                0.0439453125, 0.02197265625, 0.010986328125,
+                                0.0054931640625, 0.00274658203125, 0.001373291015625,
+                                0.0006866455078125, 0.00034332275390625, 0.000171661376953125,
                                 0.0000858306884765625, 0.00004291534423828125, 0.000021457672119140625]
         }
     );
